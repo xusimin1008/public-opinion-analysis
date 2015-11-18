@@ -14,7 +14,7 @@ BOT_NAME = 'guangxi'
 SPIDER_MODULES = ['guangxi.spiders']
 NEWSPIDER_MODULE = 'guangxi.spiders'
 
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'WARNING'
 
 ### CUSTOM
 
@@ -30,7 +30,7 @@ ITEM_PIPELINES = {
 
 #DOWNLOAD_DELAY = 1 
 
-CLOSESPIDER_ITEMCOUNT = 3
+#CLOSESPIDER_ITEMCOUNT = 3
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
