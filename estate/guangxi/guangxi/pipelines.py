@@ -15,7 +15,7 @@ class CorpusPipeline(object):
 
     def open_spider(self, spider):
         self.session = session = db_session(DB)
-        self.model = db_model(DB, 'corpus_test')
+        self.model = db_model(DB, 'corpus')
         self.query = self.session.query(self.model)
 
     def close_spider(self, spider):
