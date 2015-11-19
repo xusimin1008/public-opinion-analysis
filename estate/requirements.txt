@@ -1,3 +1,7 @@
 Scrapy
 SQLAlchemy
 PyMySQL
+
+readability-lxml
+
+jieba
