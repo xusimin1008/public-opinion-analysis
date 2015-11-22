@@ -5,8 +5,8 @@
 
 create database public_opinion;
 
-'''
 
+```
 CREATE TABLE `corpus` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `url` varchar(200) NOT NULL DEFAULT '',
@@ -22,5 +22,4 @@ CREATE TABLE `corpus` (
   PRIMARY KEY (`id`),
   KEY `url_index` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-'''
+```
