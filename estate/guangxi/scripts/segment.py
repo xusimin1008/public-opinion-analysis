@@ -7,6 +7,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import re
 from collections import Counter
+import json
 
 import jieba
 
@@ -70,20 +71,21 @@ def segment():
 
     query = session.query(M)
 
-    while True:
-        corpuses = query.filter(M.status == 'extracted', M.content != '[extract_error]').order_by(M.id).limit(50).all()
-        if not corpuses:
-            break
+    #while True:
+    corpuses = query.filter(M.status == 'extracted', M.content != '[extract_error]').order_by(M.id)
+        # if not corpuses:
+        #     break
 
-        for corpus in corpuses:
-            try:
-                corpus.wrod_freq = segment_text(corpus.content)
-                session.commit()
-            except:
-                print('===> segment error, id: ', corpus.id)
-
-            corpus.status = 'segmented'
+    for corpus in corpuses:
+        try:
+            corpus.word_freq = segment_text(corpus.content)
             session.commit()
+            print('===> segment id: ', corpus.id)
+        except:
+            print('===> segment error, id: ', corpus.id)
+
+        corpus.status = 'segmented'
+        session.commit()
 
 
 if __name__ == '__main__':
